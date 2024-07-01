@@ -22,7 +22,10 @@ class _MyAppState extends State<MyApp> {
       print('허락됨');
       var contacts=await ContactsService.getContacts();
       print(contacts);
-      name=contacts;
+      setState(() {
+        name=contacts;
+      });
+
     }else if(status.isDenied){
       print('거절됨');
       Permission.contacts.request();
